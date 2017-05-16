@@ -12,7 +12,7 @@ function pyramid(num) {
   return result
 }
 
-function goodPyramid(num) {
+function betterPyramid(num) {
 	var x = 'x', space = ' ';
   space = space.repeat(num-1);;
   while(num > 0) {
@@ -28,4 +28,4 @@ function goodPyramid(num) {
 //     2__x_x__x
 //     1_x x x x
 //      x x x x x
- goodPyramid(15);
+ betterPyramid(5);

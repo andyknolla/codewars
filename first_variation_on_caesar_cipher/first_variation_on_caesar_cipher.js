@@ -3,10 +3,32 @@ function alphabet(key) {
   return alphabet[key];
 }
 
+function alphabetArray(index) {
+  const arr = [' ','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+  return arr[index]
+}
+
+// str.replace(substr,function)
+
 function movingShift(s, shift) {
+  str = s.toLowerCase();
+  for(let i=0;i<str.length;i++) {
+    let char = charAt(i)
+  	if(char != " ") {
+    	str.replace(char, (char) => {
+
+      })
+    } else continue
+  }
     return "";
 }
 
 function demovingShift(arr, shift) {
     return "";
 }
+
+
+
+var u = "I should have known that you would have a perfect answer for me!!!"
+var v = ["J vltasl rlhr ", "zdfog odxr ypw", " atasl rlhr p ", "gwkzzyq zntyhv", " lvz wp!!!"]
+//movingShift(u, 1)

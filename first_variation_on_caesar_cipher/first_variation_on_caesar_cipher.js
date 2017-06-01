@@ -32,3 +32,20 @@ function demovingShift(arr, shift) {
 var u = "I should have known that you would have a perfect answer for me!!!"
 var v = ["J vltasl rlhr ", "zdfog odxr ypw", " atasl rlhr p ", "gwkzzyq zntyhv", " lvz wp!!!"]
 //movingShift(u, 1)
+
+// replace test
+let dirka = 'dirka allah';
+const letters = 'abcde';
+
+function replace(str) {
+	let coded = str.split('');
+
+  for(let i=0;i<str.length +1;i++) {
+   // if(coded[i] != ' ') {
+      coded.splice(i,1, letters[i]);
+    //}
+  }
+  return coded.join('');
+}
+
+replace(dirka);   // > abcde

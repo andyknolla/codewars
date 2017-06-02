@@ -3,13 +3,6 @@ function alphabet(key) {
   return alphabet[key];
 }
 
-function alphabetArray(index) {
-  const arr = [' ','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-  return arr[index]
-}
-
-// str.replace(substr,function)
-
 function movingShift(s, shift) {
   str = s.toLowerCase();
   for(let i=0;i<str.length;i++) {
@@ -34,18 +27,28 @@ var v = ["J vltasl rlhr ", "zdfog odxr ypw", " atasl rlhr p ", "gwkzzyq zntyhv",
 //movingShift(u, 1)
 
 // replace test
-let dirka = 'dirka allah';
-const letters = 'abcde';
+let dirka = 'a az aaa aaaa aaaaa aaaaaa aaaaaaa';
 
-function replace(str) {
-	let coded = str.split('');
+function replace(str, shift) {
+  const arr = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
-  for(let i=0;i<str.length +1;i++) {
-   // if(coded[i] != ' ') {
-      coded.splice(i,1, letters[i]);
-    //}
+	let coded = str.toLowerCase().split('');
+
+  for(let i=0, j = shift;i<str.length +1;i++, j++) {
+    if(coded[i] != ' ') {
+
+      // if the replacement letter is z or undefined
+      // subtract 26, thus starting over at beginning of arr
+      // let replacement = arr[ arr.indexOf(str[i]) + j]  >$ b
+      // if arr.indexOf(str[i] +j] > 26...
+
+      coded.splice( i,1, arr[ arr.indexOf(str[i]) + j] );
+    } else continue
   }
+  coded[0] = coded[0].toUpperCase();
   return coded.join('');
 }
 
-replace(dirka);   // > abcde
+replace(dirka, 1);   // > abcde
+
+//arr[ arr.indexOf(dirka[2]) ]

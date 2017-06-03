@@ -4,15 +4,6 @@ function alphabet(key) {
 }
 
 function movingShift(s, shift) {
-  str = s.toLowerCase();
-  for(let i=0;i<str.length;i++) {
-    let char = charAt(i)
-  	if(char != " ") {
-    	str.replace(char, (char) => {
-
-      })
-    } else continue
-  }
     return "";
 }
 
@@ -20,32 +11,48 @@ function demovingShift(arr, shift) {
     return "";
 }
 
-
+// 6-3
 
 var u = "I should have known that you would have a perfect answer for me!!!"
 var v = ["J vltasl rlhr ", "zdfog odxr ypw", " atasl rlhr p ", "gwkzzyq zntyhv", " lvz wp!!!"]
 //movingShift(u, 1)
 
 // replace test
-let dirka = 'a az aaa aaaa aaaaa aaaaaa aaaaaaa';
+let dirka = 'I should not have known poop turd butt dong stuff dirka that you would have a perfect answer for me';
 
-function replace(str, shift) {
+function split(sentenceString) {
+	let sentenceArray = sentenceString.split(' ');
+  let firstChunks = sentenceArray.length%5;
+  let otherChunks = sentenceArray.length/5;
+  let answer = [];
+  while(sentenceArray.length > 0) {
+  	answer.push( sentenceArray.splice(0, answer.length < firstChunks ? Math.ceil(otherChunks) : Math.floor(otherChunks) ).join(' ') );
+  }
+  return answer
+}
+
+function replace(str, initialShift) {
   const arr = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-
 	let coded = str.toLowerCase().split('');
+	console.log(coded)
 
-  for(let i=0, j = shift;i<str.length +1;i++, j++) {
+  for(let i=0, shift = initialShift;i<str.length +1;i++, shift++) {
+    let start = arr[ arr.indexOf( str[i] ) ];
     if(coded[i] != ' ') {
 
-      // if the replacement letter is z or undefined
-      // subtract 26, thus starting over at beginning of arr
-      // let replacement = arr[ arr.indexOf(str[i]) + j]  >$ b
-      // if arr.indexOf(str[i] +j] > 26...
+      if(shift - (26 - start) < 0 ) {
+      	coded.splice( i,1, arr[ arr.indexOf(str[i]) + shift] );
+      } else {
+      	coded.splice( i,1, arr[ shift - (26 - start) ] );
+      }
 
-      coded.splice( i,1, arr[ arr.indexOf(str[i]) + j] );
     } else continue
   }
+  console.log(coded)
   coded[0] = coded[0].toUpperCase();
+
+   return split(coded.join(''));
+
   return coded.join('');
 }
 

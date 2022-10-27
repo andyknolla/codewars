@@ -1,0 +1,14 @@
+{
+  "name": "codewars_solutions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Array.diff.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Andy Knolla",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.2.2"
+  }
+}

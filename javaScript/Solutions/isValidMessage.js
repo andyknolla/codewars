@@ -2,9 +2,7 @@ function isAValidMessage(message) {
   const numberCheck = new RegExp('^[a-zA-Z]|\\d$');
   if (numberCheck.test(message)) return false;
   
-  var wordList = [...message.matchAll(/\d+[^\d]+/g)].map((match) => {
-    return match[0];
-  });
+  var wordList = [...message.matchAll(/\d+[^\d]+/g)].map( (match) => match[0] );
   
   return wordList.every((combo) => {
     let wordNum = combo.match(/\d+/g)[0];
@@ -27,4 +25,8 @@ Notes:
 Messages are composed of only letters and digits
 Numbers may have multiple digits: e.g. "4code13hellocodewars" is a valid message
 Every number must match the number of character in the following substring, otherwise the message is invalid: e.g. "hello5" and "2hi2" are invalid
-If the message is an empty string, you should return true */
+If the message is an empty string, you should return true 
+
+Learning:
+This was good practice for Regular Expressions, using String.match, .matchAll, and RegExp.test. 
+*/

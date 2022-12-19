@@ -1,20 +1,16 @@
 function isAValidMessage(message) {
-  const endsWithNum = new RegExp('\\d');
-  if (message.length && endsWithNum.test(message[message.length - 1] )) return false;
-
-  let valid = true;
+  const numberCheck = new RegExp('^[a-zA-Z]|\\d$');
+  if (numberCheck.test(message)) return false;
+  
   var wordList = [...message.matchAll(/\d+[^\d]+/g)].map((match) => {
     return match[0];
   });
-
-  wordList.forEach((combo) => {
+  
+  return wordList.every((combo) => {
     let wordNum = combo.match(/\d+/g)[0];
-    let wordLength = combo.match(/[a-zA-Z]+/)[0].length;
-    if (+wordNum !== wordLength) {
-      valid = false;
-    }
+    let wordLength = combo.match(/[a-zA-Z]+/g)[0].length;
+    return +wordNum === wordLength 
   });
-  return valid;
 }
 
 module.exports = isAValidMessage;
